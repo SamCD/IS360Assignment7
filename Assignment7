@@ -1,6 +1,7 @@
 #I took this data from basketball-reference.com.
 #It is a list of the first 20 players in the league listed alphabetically,
-#serving as a random sample of NBA players.
+#serving as a random sample of NBA players. I saved the data as a CSV file, which I have attached
+#with my submission
 stats <- read.table("/Users/samdevries/Documents/nba.csv", header = TRUE, sep = ',')
 print(stats)
 #This histogram shows that the majority of players in this sample
