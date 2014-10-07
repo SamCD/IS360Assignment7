@@ -1,0 +1,23 @@
+#I took this data from basketball-reference.com.
+#It is a list of the first 20 players in the league listed alphabetically,
+#serving as a random sample of NBA players.
+stats <- read.table("/Users/samdevries/Documents/nba.csv", header = TRUE, sep = ',')
+print(stats)
+#This histogram shows that the majority of players in this sample
+#are between 20-25 years of age
+hist(stats$Age, main = "NBA", xlab = "Age")
+#Shows a box plot of FG% by positions, showing that, on average,
+#PF's and C's shooter more accurately. It also shows there is one
+#error in the Pos column, with one value for the position F
+plot(FG. ~ Pos, data = stats)
+#Shows a scatterplot to see if there is a relationship between
+#FG% and FT%
+plot(stats$FG., stats$FT.)
+#Regressions of Points Scored on Minutes Played,
+#broken down by team
+#***Source: "http://www.statmethods.net/advgraphs/ggplot2.html"
+library(ggplot2)
+qplot(MP, PTS, data=stats, geom=c("point", "smooth"), 
+      method="lm", formula=y~x, color=Tm, 
+      main="Regression of PTS on MP", 
+      xlab="Minutes Played", ylab="Points Scored")
